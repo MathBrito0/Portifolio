@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blue Team / SOC Analyst</title>
+  <link rel="stylesheet" href="CSS/style.css">
+  
+ 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+ 
+</head>
+<body>
+  <!-- Div que realiza a varredura visual -->
+  <div class="scan-wipe"></div>
+
+  <canvas id="bgCanvas"></canvas>
+ 
+  <div class="status-bar">
+    <span class="status-dot"></span>
+    <span data-lang-pt="SYSTEM STATUS: ONLINE" data-lang-en="SYSTEM STATUS: ONLINE">SYSTEM STATUS: ONLINE</span>
+    
+    <div class="language-switcher">
+      <button type="button" id="btn-pt" class="lang-btn active" onclick="setLanguage('pt')">[PT]</button>
+      <span style="color: var(--border);">/</span>
+      <button type="button" id="btn-en" class="lang-btn" onclick="setLanguage('en')">[EN]</button>
+    </div>
+
+    <span class="status-bar-clock" id="clock">00:00:00</span>
+  </div>
+ 
+  <header class="nav">
+    <div class="nav-logo">root@blueteam<span class="cursor-blink">_</span></div>
+    <button type="button" class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#sobre" data-lang-pt="Sobre" data-lang-en="About">Sobre</a>
+      <a href="#skills" data-lang-pt="Skills" data-lang-en="Skills">Skills</a>
+      <a href="#mindset" data-lang-pt="Mindset" data-lang-en="Mindset">Mindset</a>
+      <a href="#projetos" data-lang-pt="Projetos" data-lang-en="Projects">Projetos</a>
+      <a href="#contato" data-lang-pt="Contato" data-lang-en="Contact">Contato</a>
+    </nav>
+  </header>
+ 
+  <section class="hero">
+    <div class="shield-bg" aria-hidden="true">
+      <svg class="symbol-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        <circle cx="12" cy="11" r="3" stroke-width="0.5" stroke-dasharray="1 1"/>
+        <path d="M12 6v2M12 14v2M7 11h2M15 11h2" stroke-width="0.5"/>
+      </svg>
+      <svg class="symbol-red" style="display: none; color: #ef4444;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+        <circle cx="12" cy="12" r="10" />
+        <circle cx="12" cy="12" r="6" stroke-dasharray="2 3" />
+        <circle cx="12" cy="12" r="2" fill="currentColor"/>
+        <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+      </svg>
+    </div>
+
+    <pre class="terminal-intro" id="terminalIntro"></pre>
+    <h1 class="hero-name">Matheus Brito</h1>
+    <p class="hero-subtitle" data-lang-pt="Estudante de Cibersegurança" data-lang-en="Cybersecurity Student">Estudante de Cibersegurança</p>
+    <a href="#projetos" class="btn" data-lang-pt="$ ./ver-projetos.sh" data-lang-en="$ ./view-projects.sh">$ ./ver-projetos.sh</a>
+  </section>
+ 
+  <section id="sobre" class="section reveal">
+    <h2 class="section-title" data-lang-pt="// Sobre" data-lang-en="// About">// sobre</h2>
+    <div class="panel">
+      <p data-lang-pt="Estudante de Cibersegurança na PUCPR, com forte interesse em Blue Team. Procuro entender ameaças e desenvolver ideias e softwares que facilitam a detecção e proteção de vulnerabilidades."
+         data-lang-en="Cybersecurity student at PUCPR with a strong interest in Blue Team operations. I aim to understand threats and develop ideas and software that facilitate vulnerability detection and protection.">
+         Estudante de Cibersegurança na PUCPR, com forte interesse em Blue Team. Procuro entender ameaças e desenvolver ideias e softwares que facilitam a detecção e proteção de vulnerabilidades.
+      </p>
+    </div>
+  </section>
+ 
+  <section id="skills" class="section reveal">
+    <h2 class="section-title" data-lang-pt="// Skills_certificações.exe" data-lang-en="// Skills_certifications.exe">// Skills_certificações.exe</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-name" data-lang-pt="Estudos de Cibersegurança" data-lang-en="Cybersecurity Studies">Estudos de Cibersegurança</div>
+        <div class="skill-bar"><div class="skill-fill" data-width="100%"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name" data-lang-pt="Certificações" data-lang-en="Certifications">Certificações</div>
+        <div class="skill-bar"><div class="skill-fill" data-width="100%"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name" data-lang-pt="Sistemas Operacionais e Softwares" data-lang-en="Operating Systems & Software">Sistemas Operacionais e Softwares</div>
+        <div class="skill-bar"><div class="skill-fill" data-width="100%"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name" data-lang-pt="Linguagens de Programação" data-lang-en="Programming Languages">Linguagens de Programação</div>
+        <div class="skill-bar"><div class="skill-fill" data-width="100%"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mindset" class="section reveal">
+    <h2 class="section-title" data-lang-pt="// Mindset_ofensivo.exe" data-lang-en="// Offensive_mindset.exe">// Mindset_ofensivo.exe</h2>
+    <div class="panel" style="position: relative; overflow: hidden;">
+      <p id="redTeamText" data-lang-pt="Conhecer as táticas de ataque é a melhor forma de aprimorar a defesa. Deseja iniciar a simulação de intrusão?"
+                         data-lang-en="Knowing attack tactics is the best way to improve defense. Would you like to start the intrusion simulation?">
+        Conhecer as táticas de ataque é a melhor forma de aprimorar a defesa. Deseja iniciar a simulação de intrusão?
+      </p>
+
+      <button type="button" class="btn" id="btnRedTeam" style="margin-top: 20px; border-color: #ef4444; color: #ef4444; box-shadow: 0 0 10px rgba(239, 68, 68, 0.2);"
+              data-lang-pt="&gt; ./injetar_payload.sh" data-lang-en="&gt; ./inject_payload.sh">
+        &gt; ./injetar_payload.sh
+      </button>
+
+      <div id="purpleContent" style="display: none; margin-top: 20px;">
+        <h3 style="color: var(--accent); font-family: var(--font-mono); margin-bottom: 12px;"
+            data-lang-pt="[+] OVERRIDE BEM-SUCEDIDO: BEM-VINDO AO PURPLE TEAM"
+            data-lang-en="[+] OVERRIDE SUCCESSFUL: WELCOME TO PURPLE TEAM">
+          [+] OVERRIDE BEM-SUCEDIDO: BEM-VINDO AO PURPLE TEAM
+        </h3>
+        <p style="color: var(--text-dim); margin-bottom: 25px;"
+           data-lang-pt="A segurança real acontece quando a defesa (Blue Team) e o ataque (Red Team) trabalham juntos. Estudar técnicas de Red Team me permite antecipar movimentos adversários, identificar vulnerabilidades antes que sejam exploradas e construir regras de detecção (SIEM) muito mais precisas e eficientes."
+           data-lang-en="Real security happens when defense (Blue Team) and attack (Red Team) work together. Studying Red Team techniques allows me to anticipate adversary movements, identify vulnerabilities before they are exploited, and build much more precise and efficient detection rules (SIEM).">
+          A segurança real acontece quando a defesa (Blue Team) e o ataque (Red Team) trabalham juntos. Estudar técnicas de Red Team me permite antecipar movimentos adversários, identificar vulnerabilidades antes que sejam exploradas e construir regras de detecção (SIEM) muito mais precisas e eficientes.
+        </p>
+        
+        <button type="button" class="btn" id="btnRestoreBlue" style="border-color: var(--ok); color: var(--ok); box-shadow: 0 0 10px rgba(95, 214, 138, 0.2); margin-top: 0;"
+                data-lang-pt="&gt; ./restaurar_defesas.sh" data-lang-en="&gt; ./restore_defenses.sh">
+          &gt; ./restaurar_defesas.sh
+        </button>
+      </div>
+    </div>
+  </section>
+ 
+  <section id="projetos" class="section reveal">
+    <h2 class="section-title" id="projetosTitle" data-lang-pt="// Projetos" data-lang-en="// Projects">// Projetos</h2>
+    
+    <div id="blueProjects" class="projects-grid">
+      <div class="project-card">
+        <h3 data-lang-pt="Gerador de Senhas Seguras" data-lang-en="Secure Password Generator">Gerador de Senhas Seguras</h3>
+        <p data-lang-pt="CLI focado em criptografia. Focado em gerar senhas complexas e mitigar Brute Force." data-lang-en="CLI focused on cryptography. Focused on generating complex passwords and mitigating Brute Force.">CLI focado em criptografia. Focado em gerar senhas complexas e mitigar Brute Force.</p>
+        <div class="tags"><span class="tag" data-lang-pt="Em andamento..." data-lang-en="In progress...">Em andamento...</span><span class="tag">Rust</span><span class="tag">SPG</span></div>
+        <a href="#" class="project-link" data-lang-pt="Ver Projeto &rarr;" data-lang-en="View Project &rarr;">Ver Projeto &rarr;</a>
+      </div>
+      <div class="project-card">
+        <h3 data-lang-pt="Calculador de Sub-Redes" data-lang-en="Subnet Calculator">Calculador de Sub-Redes</h3>
+        <p data-lang-pt="Ferramenta de cálculo e planejamento de rede. Realiza operações para mapeamento de IP e Hosts." data-lang-en="Network calculation and planning tool. Performs operations for IP and Host mapping.">Ferramenta de cálculo e planejamento de rede. Realiza operações para mapeamento de IP e Hosts.</p>
+        <div class="tags"><span class="tag" data-lang-pt="Em andamento..." data-lang-en="In progress...">Em andamento...</span><span class="tag" data-lang-pt="Redes" data-lang-en="Networking">Redes</span><span class="tag">IPv4/IPv6</span></div>
+        <a href="#" class="project-link" data-lang-pt="Ver Projeto &rarr;" data-lang-en="View Project &rarr;">Ver Projeto &rarr;</a>
+      </div>
+      <div class="project-card">
+        <h3 data-lang-pt="Automação de Triagem" data-lang-en="Triage Automation">Automação de Triagem</h3>
+        <p data-lang-pt="Script para triagem automatizada de incidentes, realizando controle de taxa de requisições em APIs de verificação de ameaças." data-lang-en="Script for automated incident triage, performing rate-limiting control on threat verification APIs.">Script para triagem automatizada de incidentes, realizando controle de taxa de requisições em APIs de verificação de ameaças.</p>
+        <div class="tags"><span class="tag" data-lang-pt="Em andamento..." data-lang-en="In progress...">Em andamento...</span><span class="tag" data-lang-pt="Ingestão de Dados" data-lang-en="Data Ingestion">Ingestão de Dados</span><span class="tag">Rate Limit</span></div>
+        <a href="#" class="project-link" data-lang-pt="Ver Projeto &rarr;" data-lang-en="View Project &rarr;">Ver Projeto &rarr;</a>
+      </div>
+    </div>
+
+    <div id="redProjects" class="projects-grid" style="display: none;">
+      <div class="project-card" style="border-color: #ef4444; border-style: dashed;">
+        <h3 style="color: #ef4444;">Port Scanner</h3>
+        <p data-lang-pt="Um script em Rust que realiza varreduras TCP connect em endereços IP locais ou redes autorizadas para identificar portas abertas e serviços rodando." data-lang-en="A Rust script that performs TCP connect scans on local IP addresses or authorized networks to identify open ports and running services.">Um script em Rust que realiza varreduras TCP connect em endereços IP locais ou redes autorizadas para identificar portas abertas e serviços rodando.</p>
+        <div class="tags"><span class="tag" style="border-color: rgba(239, 68, 68, 0.4); color: #f87171;">Recon</span><span class="tag" style="border-color: rgba(239, 68, 68, 0.4); color: #f87171;">TCP Sockets</span></div>
+        <a href="#" class="project-link" style="color: #ef4444;" data-lang-pt="Ver Projeto &rarr;" data-lang-en="View Project &rarr;">Ver Projeto &rarr;</a>
+      </div>
+      <div class="project-card" style="border-color: #ef4444; border-style: dashed;">
+        <h3 style="color: #ef4444;" data-lang-pt="Verificador de Logs / Hash Cracker" data-lang-en="Log Analyzer / Hash Cracker">Verificador de Logs / Hash Cracker</h3>
+        <p data-lang-pt="Uma ferramenta que lê arquivos de texto contendo hashes de senhas (como MD5 e SHA-256) e executa um ataque de força bruta ou dicionário comparando com uma lista de palavras comuns." data-lang-en="A tool that reads text files containing password hashes (such as MD5 and SHA-256) and performs a brute-force or dictionary attack comparing them against a common wordlist.">Uma ferramenta que lê arquivos de texto contendo hashes de senhas (como MD5 e SHA-256) e executa um ataque de força bruta ou dicionário comparando com uma lista de palavras comuns.</p>
+        <div class="tags"><span class="tag" style="border-color: rgba(239, 68, 68, 0.4); color: #f87171;">Cryptography</span><span class="tag" style="border-color: rgba(239, 68, 68, 0.4); color: #f87171;" data-lang-pt="Password Cracking" data-lang-en="Password Cracking">Password Cracking</span></div>
+        <a href="#" class="project-link" style="color: #ef4444;" data-lang-pt="Ver Projeto &rarr;" data-lang-en="View Project &rarr;">Ver Projeto &rarr;</a>
+      </div>
+    </div>
+  </section>
+ 
+  <section id="contato" class="section reveal">
+    <h2 class="section-title" data-lang-pt="// Canal_Seguro" data-lang-en="// Secure_Channel">// canal seguro</h2>
+    <div class="panel contact-panel">
+      <p data-lang-pt="Prefere falar por um desses canais:" data-lang-en="Prefer to reach out through one of these channels:">Prefere falar por um desses canais:</p>
+      <div class="contact-links">
+        <!-- <a href="mailto:seuemail@exemplo.com">E-Mail</a> -->
+        <a href="www.linkedin.com/in/matheus--brito-" target="_blank">LinkedIn</a>
+        <a href="https://github.com/MathBrito0" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </section>
+ 
+  <footer class="footer">
+    <p data-lang-pt="© 2026 Matheus Brito — feito com HTML, CSS e JS puro." data-lang-en="© 2026 Matheus Brito — built with pure HTML, CSS, and JS.">© 2026 Matheus Brito — feito com HTML, CSS e JS puro.</p>
+  </footer>
+
+<!-- Modal de Aviso de Injeção (Red Team) -->
+<div id="warningModal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.85); z-index: 10000; justify-content: center; align-items: center; backdrop-filter: blur(6px);">
+    <div style="background: #0d0608; border: 1px solid #ef4444; padding: 32px; max-width: 500px; width: 90%; text-align: center; box-shadow: 0 0 35px rgba(239, 68, 68, 0.35);">
+      
+      <h3 style="color: #ef4444; margin-bottom: 15px; font-family: 'JetBrains Mono', monospace; font-size: 1.1rem;"
+          data-lang-pt="[!] ATENÇÃO: OPERAÇÃO CRÍTICA"
+          data-lang-en="[!] WARNING: CRITICAL OPERATION">
+        [!] ATENÇÃO: OPERAÇÃO CRÍTICA
+      </h3>
+      
+      <p style="color: #ccc; margin-bottom: 25px; font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; line-height: 1.5;">
+        <span data-lang-pt="Você tem certeza que quer rodar esse comando no meu portfólio?"
+              data-lang-en="Are you sure you want to run this command on my portfolio?">
+          Você tem certeza que quer rodar esse comando no meu portfólio?
+        </span>
+        <br><br>
+        <span style="color: #ef4444;"
+              data-lang-pt="Eu não recomendo, isso pode causar consequências irreversíveis."
+              data-lang-en="I do not recommend it, this may cause irreversible consequences.">
+          Eu não recomendo, isso pode causar consequências irreversíveis.
+        </span>
+      </p>
+      
+      <div style="display: flex; gap: 15px; justify-content: center;">
+        <button id="btnCancel" class="btn" style="border-color: #555; color: #aaa; margin-top: 0;"
+                data-lang-pt="> Abortar"
+                data-lang-en="> Abort">
+          > Abortar
+        </button>
+        
+        <button id="btnConfirm" class="btn" style="border-color: #ef4444; color: #ef4444; font-weight: bold; margin-top: 0;"
+                data-lang-pt="> Sim, Injetar"
+                data-lang-en="> Yes, Inject">
+          > Sim, Injetar
+        </button>
+      </div>
+
+    </div>
+  </div> 
+  <script src="JavaScript/main.js"></script>
+</body>
+</html>
