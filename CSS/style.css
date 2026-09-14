@@ -1,3 +1,31 @@
+/* ==========================================
+   ESTILOS GLOBAIS E EFEITOS
+   ========================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+/* Efeito Global de Scanlines (Monitor CRT) para toda a página */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0) 50%,
+        rgba(0, 0, 0, 0.2) 50%,
+        rgba(0, 0, 0, 0.2)
+    );
+    background-size: 100% 4px;
+    z-index: 9999;
+    pointer-events: none;
+}
+
 .language-switcher {
   display: flex;
   align-items: center;
@@ -518,17 +546,6 @@ body.purple-mode {
   --accent-glow: #d8b4fe;
   --glow-shadow: rgba(168, 85, 247, 0.3);
   font-family: var(--font-mono);
-}
-
-body.purple-mode::after {
-  content: " ";
-  display: block;
-  position: fixed;
-  top: 0; left: 0; bottom: 0; right: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.3) 50%);
-  background-size: 100% 4px;
-  z-index: 9998;
-  pointer-events: none;
 }
 
 body.purple-mode #bgCanvas,
