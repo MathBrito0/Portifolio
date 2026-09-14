@@ -1,12 +1,7 @@
-/* ==========================================
-   ESTILOS GLOBAIS E EFEITOS
-   ========================================== */
-
 * {
   box-sizing: border-box;
 }
 
-/* Efeito Global de Scanlines (Monitor CRT) para toda a página */
 body::before {
     content: "";
     position: fixed;
