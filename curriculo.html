@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Currículo — Matheus Brito de Paula</title>
+<button onclick="window.print()">Baixar em PDF</button>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -45,7 +46,25 @@
     margin-top: 4px;
     margin-bottom: 16px;
   }
- 
+
+  .cv-button {
+   @media print {
+  button, nav, footer, .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff;
+    color: #000000;
+    font-size: 12pt;
+  }
+
+  @page {
+    size: A4;
+    margin: 1.5cm;
+  }
+}
+   
   .cv-contacts {
     display: flex;
     flex-wrap: wrap;
