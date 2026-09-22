@@ -1,4 +1,4 @@
-# 🛡️ Cybersecurity Portfolio & SOC Dashboard
+# 🛡️ Portifólio de Cibersegurança
 
 <div align="center">
   <p><b>Portfólio interativo de Cibersegurança focado em Blue Team, Análise de SOC e Desenvolvimento Seguro.</b></p>
