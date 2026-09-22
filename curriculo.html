@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Currículo — Matheus Brito de Paula</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+ 
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f0f2f5;
+    color: #1a1a2e;
+    padding: 32px 16px;
+  }
+ 
+  .cv {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  }
+ 
+  /* CABEÇALHO */
+  .cv-header {
+    background: #0a0e16;
+    padding: 32px 36px;
+    color: #fff;
+  }
+ 
+  .cv-header h1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.7rem;
+    letter-spacing: -0.5px;
+    color: #fff;
+  }
+ 
+  .cv-header .cv-role {
+    color: #4fa8d8;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    margin-top: 4px;
+    margin-bottom: 16px;
+  }
+ 
+  .cv-contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    font-size: 0.82rem;
+    color: #7c8a9a;
+    font-family: 'JetBrains Mono', monospace;
+  }
+ 
+  .cv-contacts a { color: #4fa8d8; text-decoration: none; }
+ 
+  /* CORPO */
+  .cv-body {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    align-items: start;
+  }
+ 
+  .cv-main { padding: 28px 32px; border-right: 1px solid #e8ecf0; }
+  .cv-side { padding: 28px 24px; background: #f8fafc; }
+ 
+  /* seção */
+  .cv-section { margin-bottom: 26px; }
+ 
+  .cv-section-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #4fa8d8;
+    border-bottom: 1px solid #e0e8f0;
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+  }
+ 
+  /* item genérico */
+  .cv-item { margin-bottom: 14px; }
+ 
+  .cv-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+ 
+  .cv-item-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+ 
+  .cv-item-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #7c8a9a;
+    white-space: nowrap;
+  }
+ 
+  .cv-item-sub {
+    font-size: 0.85rem;
+    color: #4fa8d8;
+    margin-top: 2px;
+  }
+ 
+  .cv-item-desc {
+    font-size: 0.87rem;
+    color: #4a5568;
+    margin-top: 5px;
+    line-height: 1.55;
+  }
+ 
+  /* tags de skill */
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+ 
+  .skill-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    background: #eaf4fb;
+    color: #2a6a9a;
+    border: 1px solid #c5dff0;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+ 
+  /* certificação na sidebar */
+  .cert-item {
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #e8ecf0;
+  }
+  .cert-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+ 
+  .cert-name {
+    font-weight: 600;
+    font-size: 0.88rem;
+  }
+ 
+  .cert-org {
+    font-size: 0.8rem;
+    color: #4fa8d8;
+    margin-top: 2px;
+  }
+ 
+  .cert-status {
+    display: inline-block;
+    margin-top: 5px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    padding: 3px 8px;
+    border-radius: 20px;
+  }
+ 
+  .cert-done {
+    background: #e6f7ee;
+    color: #2e7d52;
+    border: 1px solid #a8d8bc;
+  }
+ 
+  .cert-ongoing {
+    background: #fff4e6;
+    color: #9a6200;
+    border: 1px solid #f0d090;
+  }
+ 
+  /* idioma */
+  .lang-item { margin-bottom: 10px; }
+  .lang-name { font-weight: 600; font-size: 0.88rem; }
+  .lang-level { font-size: 0.8rem; color: #7c8a9a; }
+ 
+  /* nota de rodapé */
+  .cv-footer {
+    text-align: center;
+    padding: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: #b0bac5;
+    background: #f8fafc;
+    border-top: 1px solid #e8ecf0;
+  }
+ 
+  @media print {
+    body { background: #fff; padding: 0; }
+    .cv { box-shadow: none; border-radius: 0; }
+  }
+ 
+  @media (max-width: 580px) {
+    .cv-body { grid-template-columns: 1fr; }
+    .cv-main { border-right: none; border-bottom: 1px solid #e8ecf0; }
+  }
+</style>
+</head>
+<body>
+<div class="cv">
+ 
+  <!-- CABEÇALHO -->
+  <div class="cv-header">
+    <h1>Matheus Brito de Paula</h1>
+    <div class="cv-role">&gt; Estudante de Cibersegurança — Blue Team / SOC</div>
+    <div class="cv-contacts">
+      <span>matheusbrito2005@gmail.com</span>
+      <a href="#">linkedin.com/in/matheus--brito-</a>
+      <a href="#">github.com/mathbrito0</a>
+      <a href="#">mathbrito0.github.io/Portifolio/</a>
+    </div>
+  </div>
+ 
+  <div class="cv-body">
+ 
+    <!-- COLUNA PRINCIPAL -->
+    <div class="cv-main">
+ 
+      <!-- OBJETIVO -->
+      <div class="cv-section">
+        <div class="cv-section-title">Objetivo</div>
+        <p style="font-size:0.9rem; color:#4a5568; line-height:1.6;">
+          Estudante de Cibersegurança pela PUCPR com foco em segurança defensiva (Blue Team / SOC).
+          Busco oportunidade para aplicar conhecimentos em monitoramento de redes,
+          análise de logs e resposta a incidentes.
+        </p>
+      </div>
+ 
+      <!-- FORMAÇÃO -->
+      <div class="cv-section">
+        <div class="cv-section-title">Formação</div>
+        <div class="cv-item">
+          <div class="cv-item-header">
+            <span class="cv-item-title">Bacharelado em Cibersegurança</span>
+            <span class="cv-item-date">2024 — atual</span>
+          </div>
+          <div class="cv-item-sub">Pontifícia Universidade Católica do Paraná</div>
+        </div>
+      </div>
+ 
+      <!-- PROJETOS -->
+      <div class="cv-section">
+        <div class="cv-section-title">Projetos</div>
+
+         <div class="cv-item">
+          <div class="cv-item-header">
+            <span class="cv-item-title">Totem de Emergência</span>
+            <span class="cv-item-date">2026</span>
+          </div>
+          <div class="cv-item-sub">Projeto Smart City em Grupo</div>
+          <p class="cv-item-desc">
+            idealização a apresentação da ideia de um dispositivo de solicitação de ajuda. Ao ser pressionado,
+            envia sinais para unidades de socorro, facilitando a prestação de socorro e facilitando a comunicação.
+            Objetivo de disponibilizar um serviço emergencial rápido e eficente.
+          </p>
+        </div>
+ 
+        <div class="cv-item">
+          <div class="cv-item-header">
+            <span class="cv-item-title">Configuração de Rede com OSPF</span>
+            <span class="cv-item-date">2026</span>
+          </div>
+          <div class="cv-item-sub">Projeto Acadêmico — Cisco Packet Tracer</div>
+          <p class="cv-item-desc">
+            Configuração de dois cenários de rede interligados com endereçamento /25,
+            protocolo OSPF, roteadores 2911 e switches 2960. Foco em roteamento dinâmico
+            e segmentação de redes.
+          </p>
+        </div>
+ 
+        <div class="cv-item">
+          <div class="cv-item-header">
+            <span class="cv-item-title">Portfólio Blue Team</span>
+            <span class="cv-item-date">2026</span>
+          </div>
+          <div class="cv-item-sub">Projeto Pessoal — HTML / CSS / JavaScript</div>
+          <p class="cv-item-desc">
+            Site portfólio desenvolvido do zero (com apoio de Inteligência Artificial) 
+            com tema de cibersegurança defensiva,
+            incluindo animações interativas e seções de projetos e certificações.
+          </p>
+        </div>
+
+        <!-- copie o bloco cv-item acima para adicionar mais projetos -->
+      </div>
+ 
+      <!-- INTERCÂMBIO -->
+      <div class="cv-section">
+        <div class="cv-section-title">Experiência Internacional</div>
+        <div class="cv-item">
+          <div class="cv-item-header">
+            <span class="cv-item-title">Intercâmbio — Vancouver, Canadá</span>
+            <span class="cv-item-date">08/2023 - 02/2024</span>
+          </div>
+          <div class="cv-item-sub">Service Excellence for Business - ILAC International College</div>
+          <p class="cv-item-desc">
+            Programa de estudos voltado para desenvolvimento prático de negócios e atendimento ao cliente.
+            Desenvolvimento de inglês técnico, administração e gestão de empresas, liderança de times e organização empresarial.
+          </p>
+        </div>
+      </div>
+ 
+    </div>
+ 
+    <!-- SIDEBAR -->
+    <div class="cv-side">
+ 
+      <!-- CERTIFICAÇÕES -->
+      <div class="cv-section">
+        <div class="cv-section-title">Certificações</div>
+ 
+        <div class="cert-item">
+          <div class="cert-name">Introduction to Cibersecurity</div>
+          <div class="cert-org">Cisco Networking Academy</div>
+          <span class="cert-status cert-done">✔ Concluída</span>
+        </div>
+ 
+        <div class="cert-item">
+          <div class="cert-name">Sensibilização Para Segurança Digital</div>
+          <div class="cert-org">Cisco Networking Academy</div>
+          <span class="cert-status cert-ongoing">✔ Concluída</span>
+        </div>
+        
+        <div class="cert-item">
+          <div class="cert-name">Service Excellence for Business</div>
+          <div class="cert-org">ILAC International College</div>
+          <span class="cert-status cert-ongoing">✔ Concluída</span>
+        </div>
+ 
+        <!-- copie o bloco cert-item para adicionar mais -->
+      </div>
+ 
+      <!-- HABILIDADES -->
+      <div class="cv-section">
+        <div class="cv-section-title">Skills</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">Redes TCP/IP</span>
+          <span class="skill-tag">SIEM</span>
+          <span class="skill-tag">Packet Tracer</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Rust</span>
+          <span class="skill-tag">HTML/CSS/JS</span>
+          <span class="skill-tag">Git</span>
+        </div>
+      </div>
+ 
+      <!-- IDIOMAS -->
+      <div class="cv-section">
+        <div class="cv-section-title">Idiomas</div>
+        <div class="lang-item">
+          <div class="lang-name">Português</div>
+          <div class="lang-level">Nativo</div>
+        </div>
+        <div class="lang-item">
+          <div class="lang-name">Inglês</div>
+          <div class="lang-level">Intermediário / Avançado</div>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+ 
+  <div class="cv-footer">portfólio completo em mathbrito0.github.io/Portifolio/</div>
+</div>
+</body>
+</html>
